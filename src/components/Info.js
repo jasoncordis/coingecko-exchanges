@@ -13,7 +13,10 @@ class Info extends React.Component {
 
     await CoinGeckoClient.exchanges.fetch(id).then((data) => {                              //information about the exchange is fetched by id using CoinGecko API
       const exchange = data.data
-      if(exchange.description === "")                                                       //many exchanges do not have description on the CoinGecko API, so they are set to 'N/A'
+      if(exchange.year_established == null){                                                //if exchange does not have the year established on hte CoinGeckoAPI it is set to 'N/A'
+          exchange.year_established = "N/A"
+      }
+      if(exchange.description === "")                                                       //if exchange do not have a description on the CoinGecko API, it is set to 'N/A'
         exchange.description = "N/A"
         if(exchange.url.includes("r.")){
             exchange.url = exchange.url.substring(exchange.url.indexOf("."));                //fixes error that hides link for kraken because webpage doesn't recognize "r.kraken" suffix web prefix

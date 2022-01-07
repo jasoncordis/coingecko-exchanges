@@ -72,8 +72,8 @@ class Home extends React.Component {
           <h1>CoinGecko Cryptocurrency Exchanges</h1>
           <h3>Click on any exchange to see more information.</h3>
           <div id = "buttons"><br></br>
-          <button class = "pageButton" onClick={() => { this.updateTable(1)}}>Page 1</button>
-          <button class = "pageButton" onClick={() => { this.updateTable(2)}}>Page 2</button>
+          <button className = "pageButton" onClick={() => { this.updateTable(1)}}>Page 1</button>
+          <button className = "pageButton" onClick={() => { this.updateTable(2)}}>Page 2</button>
           </div>
           <table id = "homeDirectory">
           <tbody>
