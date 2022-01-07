@@ -1,3 +1,4 @@
+import "./App.css"
 import React from "react";
 
 const CoinGecko = require("coingecko-api");
@@ -45,11 +46,11 @@ class App extends React.Component {
           {this.state.exchanges.map(function (exchange, idx) {                                                            //returns table of the exchanges list in state with name, country, logo, trust rank, and website
             return (
               <tr key = {idx} class = "trow">
-                <td><a href={exchange.id}><div className = "exchangeName">{exchange.name} </div></a></td> 
-                <td> <a href={exchange.id}><div className = "exchangeCountry"> {exchange.country} </div></a> </td> 
-                <td>  <a href={exchange.id}> <img src={exchange.image} alt={exchange.name}></img>{" "}</a></td> 
-                <td> <a href={exchange.id}><div className = "exchangeRank"> {exchange.trust_score_rank} </div></a> </td> 
-                <td> <a href={exchange.url}><div className = "exchangeUrl"> {exchange.url} </div></a> </td> 
+                <td><a href={exchange.id} class = "id"><div className = "exchangeName">{exchange.name} </div></a></td> 
+                <td> <a href={exchange.id} class = "id"><div className = "exchangeCountry"> {exchange.country} </div></a> </td> 
+                <td>  <a href={exchange.id} class = "id"><div className = "image"><img src={exchange.image} alt={exchange.name}></img>{" "}</div></a></td> 
+                <td> <a href={exchange.id} class = "id"><div className = "exchangeRank"> {exchange.trust_score_rank} </div></a> </td> 
+                <td> <a href={exchange.url} class = "website"><div className = "exchangeUrl"> {exchange.url} </div></a> </td> 
             </tr>
             );
           })}

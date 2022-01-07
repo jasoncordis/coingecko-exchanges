@@ -1,38 +1,77 @@
-.App {
+#home{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#homeDirectory{
+  margin: 0 auto;
+  text-align: left;
+}
+
+#homeDirectory {
+  height: 100%;
+}
+
+#homeDirectory td, th{
+  padding: 10px;
+  height: 20%;
+}
+
+h1{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3{
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.id {
+  display:block;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.exchangeName{
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.image{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.exchangeCountry{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.exchangeRank{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.exchangeUrl{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.trow {
+  background: white;
+  border: 2px solid black;
+}
+
+.trow:hover {
+  background: lightgreen;
 }
