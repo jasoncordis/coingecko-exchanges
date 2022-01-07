@@ -10,5 +10,8 @@ This is a React App that utilizes the CoinGecko API to display a directory of ex
 Notes about Installation:
 * There should be no other installation steps outside of performing npm install.
 
+Browser support:
+* All work was tested on the latest version of Chrome (Version 97.0.4692.71)
+
 
 [Visit the fully deployed app on Vercel](https://coingecko-exchanges.vercel.app/)
