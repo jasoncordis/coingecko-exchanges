@@ -38,13 +38,13 @@ class Home extends React.Component {
   updateTable = (page) => {
       var begin;
       var end;
-      if(page === 1){
+      if(page === 1){                                                                                       //if first page is selected, exchanges 1-5 in the list will be displayed
           begin = 0;
           end = 5;
           document.getElementById('pageNum').innerHTML = "Page 1 (Exchanges 1-5)"
 
       }
-      if(page === 2){
+      if(page === 2){                                                                                        //if second page is selected, exchanges 6-10 in the list will be displayed
           begin = 5;
           end = 10;
           document.getElementById('pageNum').innerHTML = "Page 2 (Exchanges 6-10)"
@@ -52,12 +52,12 @@ class Home extends React.Component {
       }
       var count = 0;
       for(var x = begin; x < end; x++){
-      document.getElementById('name'+count).innerHTML = this.state.exchanges[x].name;
+      document.getElementById('name'+count).innerHTML = this.state.exchanges[x].name;                        //updates table info for the exchanges of current page
       document.getElementById('country'+count).innerHTML = this.state.exchanges[x].country;
       document.getElementById('image'+count).src = this.state.exchanges[x].image;
       document.getElementById('rank'+count).innerHTML = this.state.exchanges[x].trust_score_rank;
       document.getElementById('url'+count).innerHTML = this.state.exchanges[x].url;
-      document.getElementById('a-name'+count).href = this.state.exchanges[x].id;
+      document.getElementById('a-name'+count).href = this.state.exchanges[x].id;                             //updates table links to exchanges of current page 
       document.getElementById('a-country'+count).href = this.state.exchanges[x].id;
       document.getElementById('a-image'+count).href = this.state.exchanges[x].id;
       document.getElementById('a-rank'+count).href = this.state.exchanges[x].id;
