@@ -7,4 +7,8 @@ This is a React App that utilizes the CoinGecko API to display a directory of ex
 * Using the react-router-dom system, the table will link to the information page, which uses the id in the url to call the CoinGecko API for more detailed information about the exchange.
 * The information component consists of a Back to Home button and information about the exchange logo, name, year established, country, description, trust rank, and social media links and icons.
 
+Notes about Installation:
+* There should be no other installation steps outside of performing npm install.
+
+
 [Visit the fully deployed app on Vercel](https://coingecko-exchanges.vercel.app/)
