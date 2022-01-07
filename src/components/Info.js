@@ -8,15 +8,15 @@ const CoinGeckoClient = new CoinGecko();
 class Info extends React.Component {
   async componentDidMount() {
     const url = window.location.href;
-    const id = url.substring(url.lastIndexOf("/")+1)
+    const id = url.substring(url.lastIndexOf("/")+1)                                         //id of exchange is taken from url parameter
     console.log(id)
 
-    await CoinGeckoClient.exchanges.fetch(id).then((data) => {
+    await CoinGeckoClient.exchanges.fetch(id).then((data) => {                              //information about the exchange is fetched by id using CoinGecko API
       const exchange = data.data
-      if(exchange.description === "")
+      if(exchange.description === "")                                                       //many exchanges do not have description on the CoinGecko API, so they are set to 'N/A'
         exchange.description = "N/A"
         if(exchange.url.includes("r.")){
-            exchange.url = exchange.url.substring(exchange.url.indexOf("."));        //fixes error that hides link for kraken because webpage doesn't recognize "r.kraken" suffix web prefix
+            exchange.url = exchange.url.substring(exchange.url.indexOf("."));                //fixes error that hides link for kraken because webpage doesn't recognize "r.kraken" suffix web prefix
             exchange.url = "https://www" + exchange.url
             exchange.url = exchange.url.substring(0,exchange.url.lastIndexOf('/')+1)
             }
@@ -36,7 +36,7 @@ class Info extends React.Component {
 
    socialLinks = () => {
                 
-            if(this.state.exchange.reddit_url !== ""){
+            if(this.state.exchange.reddit_url !== ""){                                                        //Reddit link and image for this exchange is only displayed if Reddit link is found by CoinGeckoAPI                                           
                 const reddit_url = this.state.exchange.reddit_url;
                 const reddit_image =  "/images/reddit.png"
                 var reddit = document.createElement('a');
@@ -44,9 +44,9 @@ class Info extends React.Component {
                 var redditImage = document.createElement("img");
                 redditImage.className = "logo"
                 redditImage.setAttribute('src', reddit_image);/*sample pic*/
-                document.getElementById('socials').appendChild(reddit).appendChild(redditImage);
+                document.getElementById('socials').appendChild(reddit).appendChild(redditImage);              //Reddit link and image is appended to socials div
             }
-            if(this.state.exchange.facebook_url !== ""){
+            if(this.state.exchange.facebook_url !== ""){                                                      //Facebook link and image for this exchange is only displayed if Facebook link is found by CoinGeckoAPI                                           
                 const facebook_url = this.state.exchange.facebook_url;
                 const facebook_image =  "/images/facebook.png"
                 var facebook = document.createElement('a');
@@ -54,9 +54,9 @@ class Info extends React.Component {
                 var facebookImage = document.createElement("img");
                 facebookImage.className = "logo"
                 facebookImage.setAttribute('src', facebook_image);/*sample pic*/
-                document.getElementById('socials').appendChild(facebook).appendChild(facebookImage);
+                document.getElementById('socials').appendChild(facebook).appendChild(facebookImage);           //Facebook link and image is appended to socials div
             }
-            if(this.state.exchange.twitter_handle !== ""){
+            if(this.state.exchange.twitter_handle !== ""){                                                      //Twitter link and image for this exchange is only displayed if Twitter link is found by CoinGeckoAPI                                           
                 const twitter_url = "https://www.twitter.com/" + this.state.exchange.twitter_handle;
                 const twitter_image =  "/images/twitter.png"
                 var twitter = document.createElement('a');
@@ -64,7 +64,7 @@ class Info extends React.Component {
                 var twitterImage = document.createElement("img");
                 twitterImage.className = "logo"
                 twitterImage.setAttribute('src', twitter_image);/*sample pic*/
-                document.getElementById('socials').appendChild(twitter).appendChild(twitterImage);
+                document.getElementById('socials').appendChild(twitter).appendChild(twitterImage);             //Twitter link and image is appended to socials div
             }
 } 
 
