@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const CoinGecko = require("coingecko-api");
+
+const CoinGeckoClient = new CoinGecko();
+
+class App extends React.Component {
+  async componentDidMount() {
+    await CoinGeckoClient.exchanges.all().then((data) => {
+      console.log(data);
+    });
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { exchanges: [] };
+  }
+
+  render() {
+    return (
+      <div id = "home">
+          <h1>CoinGecko Cryptocurrency Exchanges</h1>
+          <h3>Click on any exchange to see more information.</h3>
+      </div>
+    );
+  }
 }
 
 export default App;
