@@ -1,0 +1,39 @@
+#info {
+  display: table;
+  height: 100vh; 
+  text-align: center; 
+  margin: 0 auto;
+}
+#child {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#homeButton {
+  height: 10%;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+#homeButton:hover {
+  height: 10%;
+  background-color: blue;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo{
+  height: 80px;
+  width: 80px;
+  padding: 10px;
+}
+
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
