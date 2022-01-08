@@ -19,7 +19,7 @@ class Home extends React.Component {
           exchanges[i].url = exchanges[i].url.substring(0,exchanges[i].url.lastIndexOf('/')+1)
         }
       }
-      exchangesDefault =  exchanges.slice(0, 5);
+      exchangesDefault =  exchanges.slice(0, 5);                                                                                              //first 5 exchanges will be displayed on page load by default
       this.setState({
         exchanges: exchanges,                                                                                                                 //sets exchanges list to exchanges in state
         exchangesDefault: exchangesDefault
