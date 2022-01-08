@@ -7,21 +7,21 @@ const CoinGeckoClient = new CoinGecko();                                        
 
 class Home extends React.Component {
   async componentDidMount() {
-    await CoinGeckoClient.exchanges.all().then((data) => {                                                                                                                                                //call CoinGecko API to return exchanges
+    await CoinGeckoClient.exchanges.all().then((data) => {                                                                                                          //call CoinGecko API to return exchanges
       console.log(data);
       const exchanges = [];
       var exchangesDefault = [];
-      for (var i = 0; i < 10; i++) {                                                                                                                                                                      //push first 10 exchanges into exchanges list
+      for (var i = 0; i < 10; i++) {                                                                                                                                //push first 10 exchanges into exchanges list
         exchanges.push(data.data[i]);                                                        
         if(exchanges[i].url.includes("r.")){
-          exchanges[i].url = exchanges[i].url.substring(exchanges[i].url.indexOf("."));                                                                                                                    //fixes error that hides link for kraken because webpage doesn't recognize "r.kraken" suffix web prefix
+          exchanges[i].url = exchanges[i].url.substring(exchanges[i].url.indexOf("."));                                                                             //fixes error that hides link for kraken because webpage doesn't recognize "r.kraken" suffix web prefix
           exchanges[i].url = "https://www" + exchanges[i].url
           exchanges[i].url = exchanges[i].url.substring(0,exchanges[i].url.lastIndexOf('/')+1)
         }
       }
       exchangesDefault =  exchanges.slice(0, 5);
       this.setState({
-        exchanges: exchanges,                                                                                                                                                                             //sets exchanges list to exchanges in state
+        exchanges: exchanges,                                                                                                                                        //sets exchanges list to exchanges in state
         exchangesDefault: exchangesDefault
     });
     });
@@ -38,13 +38,13 @@ class Home extends React.Component {
   updateTable = (page) => {
       var begin;
       var end;
-      if(page === 1){                                                                                                                                                                                    //if first page is selected, exchanges 1-5 in the list will be displayed
+      if(page === 1){                                                                                                                                               //if first page is selected, exchanges 1-5 in the list will be displayed
           begin = 0;
           end = 5;
           document.getElementById('pageNum').innerHTML = "Page 1 (Exchanges 1-5)"
 
       }
-      if(page === 2){                                                                                                                                                                                    //if second page is selected, exchanges 6-10 in the list will be displayed
+      if(page === 2){                                                                                                                                                //if second page is selected, exchanges 6-10 in the list will be displayed
           begin = 5;
           end = 10;
           document.getElementById('pageNum').innerHTML = "Page 2 (Exchanges 6-10)"
@@ -52,12 +52,12 @@ class Home extends React.Component {
       }
       var count = 0;
       for(var x = begin; x < end; x++){
-      document.getElementById('name'+count).innerHTML = this.state.exchanges[x].name;                                                                                                                    //updates table info for the exchanges of current page
+      document.getElementById('name'+count).innerHTML = this.state.exchanges[x].name;                                                                                //updates table info for the exchanges of current page
       document.getElementById('country'+count).innerHTML = this.state.exchanges[x].country;
       document.getElementById('image'+count).src = this.state.exchanges[x].image;
       document.getElementById('rank'+count).innerHTML = this.state.exchanges[x].trust_score_rank;
       document.getElementById('url'+count).innerHTML = this.state.exchanges[x].url;
-      document.getElementById('a-name'+count).href = this.state.exchanges[x].id;                                                                                                                         //updates table links to exchanges of current page 
+      document.getElementById('a-name'+count).href = this.state.exchanges[x].id;                                                                                     //updates table links to exchanges of current page 
       document.getElementById('a-country'+count).href = this.state.exchanges[x].id;
       document.getElementById('a-image'+count).href = this.state.exchanges[x].id;
       document.getElementById('a-rank'+count).href = this.state.exchanges[x].id;
@@ -84,7 +84,7 @@ class Home extends React.Component {
                 <th> Trust Rank </th> 
                 <th> Website </th>
           </tr>
-          {this.state.exchangesDefault.map(function (exchange, idx) {                                                                                                                                   //returns table of the exchanges list in state with name, country, logo, trust rank, and website
+          {this.state.exchangesDefault.map(function (exchange, idx) {                                                                                               //returns table of the exchanges list in state with name, country, logo, trust rank, and website
             return (
               <tr key = {idx} className = "trow">
                 <td><a href={exchange.id} className = "id" id = {"a-name" + idx}><div className = "exchangeName" id = {"name" + idx}>{exchange.name} </div></a></td> 
