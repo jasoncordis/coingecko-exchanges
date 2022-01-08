@@ -57,6 +57,7 @@ class Home extends React.Component {
       document.getElementById('image'+count).src = this.state.exchanges[x].image;
       document.getElementById('rank'+count).innerHTML = this.state.exchanges[x].trust_score_rank;
       document.getElementById('url'+count).innerHTML = this.state.exchanges[x].url;
+      
       document.getElementById('a-name'+count).href = this.state.exchanges[x].id;                                                            //updates table links to exchanges of current page 
       document.getElementById('a-country'+count).href = this.state.exchanges[x].id;
       document.getElementById('a-image'+count).href = this.state.exchanges[x].id;
@@ -64,23 +65,23 @@ class Home extends React.Component {
       document.getElementById('a-website'+count).href = this.state.exchanges[x].url;
       count++;
       }
-} 
+}   
 
   render() {
-    return (
-      <div id = "home">
+    return ( 
+      <div id = "home"> 
           <h1>CoinGecko Cryptocurrency Exchanges</h1>
-          <h3>Click on any exchange to see more information.</h3>
-          <div id = "buttons"><br></br>
-          <button className = "pageButton" onClick={() => { this.updateTable(1)}}>Page 1</button>
-          <button className = "pageButton" onClick={() => { this.updateTable(2)}}>Page 2</button>
+          <h3>Click on any exchange to see more information.</h3>                                                                                     
+          <div id = "buttons"><br></br> 
+          <button className = "pageButton" onClick={() => { this.updateTable(1)}}>Page 1</button>                                               
+          <button className = "pageButton" onClick={() => { this.updateTable(2)}}>Page 2</button>                                           
           </div>
           <table id = "homeDirectory">
           <tbody>
           <tr>
                 <th> Name </th> 
                 <th> Country </th> 
-                <th> Logo </th>
+                <th> Logo </th>            
                 <th> Trust Rank </th> 
                 <th> Website </th>
           </tr>
