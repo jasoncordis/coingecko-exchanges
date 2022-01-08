@@ -7,8 +7,8 @@ export default function App() {
   return (
     <Router>
         <Routes>
-          <Route exact path="/" element={<Home />}/>
-          <Route exact path="/:id" element={<Info />}/>
+          <Route exact path="/" element={<Home />}/>                        
+          <Route exact path="/:id" element={<Info />}/>                     {/*Info page uses exchange id as url parameter*/}
         </Routes>
     </Router>
   );
